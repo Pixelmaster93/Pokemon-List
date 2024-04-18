@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Style-->
+    <link rel="stylesheet" href="CSS/initialBanner.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/modal.css" />
+    <link rel="stylesheet" href="CSS/thumb.css" />
+
+    <!--Icon-->
+    <link rel="icon" type="image/png" href="Images/favicon/favicon.png" />
+
+    <title>Pokèmon Catcher | Coding Week</title>
+  </head>
+
+  <body class="body-css">
+    <div class="container">
+      <!--Intestazione-->
+      <header>
+        <div class="information">
+          <div id="language-banner-btn">
+            <button id="lang-btn">
+              <img
+                class="lang-btn"
+                src="Images/Simboli/language.png"
+                alt="change-language"
+                width="27px"
+              />
+            </button>
+            <div id="language" class="info-modal">
+              <!-- Modal content -->
+              <div class="language-content">
+                <div class="language-header">
+                  <span class="close-language">&times;</span>
+                  <div class="head-title">
+                    <h2>SELECT LANGUAGE</h2>
+                  </div>
+                </div>
+                <div class="language-body">
+                  <div class="first-line">
+                    <button class="lang-button" data-lang="en">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/pngegg.png"
+                        alt="english flag"
+                      />English
+                    </button>
+                    <button class="lang-button" data-lang="it">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/Italian.png"
+                        alt="italian flag"
+                      />Italiano
+                    </button>
+                    <button class="lang-button" data-lang="es">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/spanish.png"
+                        alt="spanish flag"
+                      />Español
+                    </button>
+                  </div>
+                  <div class="second-line">
+                    <button class="lang-button" data-lang="fr">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/French.png"
+                        alt="french flag"
+                      />Français
+                    </button>
+                    <button class="lang-button" data-lang="de">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/German.png"
+                        alt="german flag"
+                      />Deutsch
+                    </button>
+                    <button class="lang-button" data-lang="ja">
+                      <img
+                        class="flag"
+                        src="Images/Bandiere/Japanese.png"
+                        alt="japanese flag"
+                      />日本語
+                    </button>
+                  </div>
+                </div>
+                <div class="language-footer">
+                  <h3>Stay Tuned!!!</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-banner-btn">
+            <button id="info-btn">
+              <img src="Images/Simboli/info.png" alt="info" width="27px" />
+            </button>
+            <div id="informa" class="info-modal">
+              <!-- Modal content -->
+              <div class="info-content">
+                <div class="info-header">
+                  <span class="close-info">&times;</span>
+                  <div class="head-title">
+                    <h2>Come utilizzare l'app</h2>
+                  </div>
+                </div>
+                <div class="info-body">
+                  <p>
+                    - Per aggiungere un pokemon selezionalo dalla lista poi
+                    Clicca sul Pokedex
+                    <img
+                      src="Images/Pokemon/Péokedex.jpeg"
+                      alt="pokedex"
+                      width="27px"
+                    />.
+                  </p>
+                  <p>
+                    - Clicca sulla pokèball
+                    <img
+                      src="Images/Pokemon/pokeball bianco e nero.png"
+                      alt="pokeball-info"
+                      width="27px"
+                    />/<img
+                      src="Images/Pokemon/pokeball.png"
+                      alt="pokeball-info"
+                      width="27px"
+                    />
+                    per spostare i Pokèmon tra le 2 liste.
+                  </p>
+                  <p>
+                    - Clicca sul cestino
+                    <img
+                      src="Images/Delete.png"
+                      alt="delete-info"
+                      width="27px"
+                    />
+                    per togliere i Pokèmon dalle liste.
+                  </p>
+                  <p>
+                    - Clicca sul nome di un pokèmon nelle 2 liste per vedere le
+                    sue info.
+                  </p>
+                  <br />
+                  <h3>Buon Divertimento</h3>
+                </div>
+                <div class="info-footer">
+                  <button class="disable-start-info">DISATTIVA</button>
+                  <p class="disable-info">Disabilita info iniziali:</p>
+                  <div class="head-title"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="logo" src="Images/Pokemon/Pokèmon Logo.png" alt="Logo" />
+
+        <!-- The Modal -->
+      </header>
+      <!--Sez princi-->
+      <main>
+        <!--Pannello aggiunta attività-->
+        <div id="add-pokemon-btn">
+          <button id="add-btn">Aggiungi Pokèmon</button>
+          <div id="add-pokemon" class="add-modal">
+            <!-- Modal content -->
+            <div class="add-content">
+              <div class="add-header">
+                <span class="close-add">&times;</span>
+                <div class="head-title">
+                  <h2>Aggiungi Pokèmon</h2>
+                </div>
+              </div>
+              <div class="add-body">
+                <p>
+                  Purtroppo per adesso non funziona ancora questo bottone, ma
+                  stiamo lavorando per implementarlo!
+                </p>
+                <select class="pokedex-choose">
+                  <option>--- Seleziona Pokèdex ---</option>
+                  <option>Pokèdex Nazionale</option>
+                  <option>Pokèdex di Kanto</option>
+                  <option>Pokèdex di Johto</option>
+                  <option>Pokèdex di 3</option>
+                  <option>Pokèdex di 4</option>
+                </select>
+                <p></p>
+              </div>
+              <div class="add-footer">
+                <h3>Stay Tuned!!!</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-pkm">
+          <select class="pokemon-choosing-list" id="pokemon-select">
+            <option></option>
+          </select>
+
+          <!-- <input type="text" placeholder="Aggiungi pokèmon da catturare" /> -->
+          <div class="btn">
+            <a class="thumbnail-add" href="#">
+              <img
+                src="Images/Pokemon/Péokedex.jpeg"
+                alt="plus icon"
+                width="72px"
+              />
+              <span>Aggiungi</span></a
+            >
+          </div>
+        </div>
+
+        <div class="page">
+          <div class="page" id="pokemon-to-catch">
+            <div class="title-box">
+              <p class="title">Pokèmon da catturare</p>
+            </div>
+
+            <p class="message" id="message-task"></p>
+            <div class="info-bar" id="wanted-info-bar">
+              <p class="info" id="wanted-info"></p>
+              <div class="btn-delete"></div>
+            </div>
+
+            <ul class="pokemon-list" id="pokemon-i-want"></ul>
+            <div id="pk-wanted" class="modal"></div>
+          </div>
+          <hr />
+          <div class="page" id="pokemon-catched">
+            <p class="title">Pokèmon catturati</p>
+            <p class="message" id="message-nocaptured"></p>
+            <div class="info-bar" id="captured-info-bar">
+              <p class="info" id="captured-info"></p>
+              <div class="btn-relase-all"></div>
+            </div>
+
+            <!--Lista attività-->
+            <ul class="pokemon-list" id="captured-pokemon"></ul>
+            <div id="pk-catched" class="modal"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="panel footer">
+        <p class="made-by">Made By</p>
+        <p class="author">Andrea Alice</p>
+      </div>
+    </footer>
+
+    <!-- Javascript -->
+
+    <script src="src/transalte.js"></script>
+    <script src="src/modalscript.js"></script>
+    <script src="src/initialBanner.js"></script>
+    <script src="src/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+/* THUMB */
+.thumbnail {
+  position: relative;
+  z-index: 8;
+  text-decoration: none !important;
+}
+.thumbnail:hover {
+  background: transparent;
+  z-index: 9;
+}
+
+.thumbnail > span {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  padding: 5px;
+}
+
+.thumbnail:hover > span {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #19a63c;
+  color: rgb(0, 0, 0);
+}
+.thumbnail:hover span span {
+  display: inline;
+  border: none;
+}
+
+/* THUMB INFO*/
+.thumbnail-info {
+  position: relative;
+  z-index: 8;
+  text-decoration: none !important;
+}
+.thumbnail-infoi:hover {
+  background: transparent;
+  z-index: 9;
+}
+
+.thumbnail-info > span {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  padding: 3px;
+}
+
+.thumbnail-info:hover > span {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #198fa6;
+  color: rgb(0, 0, 0);
+}
+
+/* THUMB DELETE*/
+.thumbnail-delete {
+  position: relative;
+  z-index: 8;
+  text-decoration: none !important;
+}
+.thumbnail-delete:hover {
+  background: transparent;
+  z-index: 9;
+}
+
+.thumbnail-delete > span {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  padding: 5px;
+}
+
+.thumbnail-delete:hover > span {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #c73333;
+  color: rgb(0, 0, 0);
+}
+.thumbnail-delete:hover span span {
+  display: inline;
+  border: none;
+}
+
+/* THUMB RILASCIA*/
+.thumbnail-rilascia {
+  position: relative;
+  z-index: 8;
+  text-decoration: none !important;
+}
+.thumbnail-rilascia:hover {
+  background: transparent;
+  z-index: 9;
+}
+
+.thumbnail-rilascia > span {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  padding: 5px;
+}
+
+.thumbnail-rilascia:hover > span {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #a2a41d;
+  color: rgb(0, 0, 0);
+}
+.thumbnail-rilascia:hover span span {
+  display: inline;
+  border: none;
+}
+
+/* THUMB AGGIUNGI*/
+.thumbnail-add {
+  position: relative;
+  z-index: 8;
+  text-decoration: none !important;
+}
+.thumbnail-add:hover {
+  background: transparent;
+  z-index: 9;
+}
+
+.thumbnail-add > span {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  padding: 5px;
+}
+
+.thumbnail-add:hover > span {
+  display: block;
+  border: none;
+  border-radius: 10px;
+  background-color: #34a41d;
+  color: rgb(0, 0, 0);
+}
+.thumbnail-add:hover span span {
+  display: inline;
+  border: none;
+}

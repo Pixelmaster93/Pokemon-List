@@ -1,0 +1,163 @@
+/* The Modal (background) */
+.info-modal,
+.add-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.language-content,
+.info-content,
+.add-content {
+  margin: 0 auto;
+  max-width: 500px;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: 18px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close-language,
+.close-info,
+.close-add {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-language:hover,
+.close-language:focus,
+.close-info:hover,
+.close-info:focus,
+.close-add:hover,
+.close-add:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.language-header,
+.info-header,
+.add-header {
+  padding: 2px 16px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  border-radius: 16px 16px 0 0;
+}
+
+.language-header,
+.language-footer {
+  background-color: #2c6db5;
+}
+
+.info-header,
+.info-footer {
+  background-color: #39b54a;
+}
+
+.add-header,
+.add-footer {
+  background-color: #ffcb08;
+}
+
+.language-body,
+.info-body,
+.add-body {
+  padding: 2px 16px;
+}
+
+.language-footer,
+.info-footer,
+.add-footer {
+  padding: 2px 16px;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  border-radius: 0 0 16px 16px;
+}
+
+#lang-btn,
+#info-btn {
+  margin: 0 auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#add-btn {
+  padding: 16px;
+  width: 100%;
+  max-height: 50px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  background-color: greenyellow;
+  cursor: pointer;
+}
+
+.head-title {
+  padding: 5px;
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+}
+
+.disable-start-info {
+  border: none;
+  border-radius: 10px;
+  background-color: red;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.disable-info {
+  width: -webkit-fill-available;
+  text-align: end;
+  padding-top: 10px;
+  padding-right: 4px;
+}
