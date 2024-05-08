@@ -141,7 +141,38 @@ async function connectToDatabase() {
 connectToDatabase();
 */
 
-console.log(lang);
+let newPokemon = [];
+
+async function getAllPokemon() {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block"; // Mostra il messaggio di caricamento
+  let n = 1;
+  while (n != 1026) {
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${n}`;
+    try {
+      const reponse = await fetch(apiUrl);
+
+      if (!reponse.ok) {
+        console.error(`API non trovata`);
+        return;
+      }
+      console.log(n);
+      const jsonData = await reponse.json();
+      const pokemonUrl = jsonData.species.name;
+      const nameUpper =
+        pokemonUrl.charAt(0).toUpperCase() + pokemonUrl.slice(1);
+      pokemonList.push(nameUpper);
+
+      console.log(nameUpper);
+    } catch (error) {
+      console.error("Errore durante la richiesta API:", error);
+    }
+    n = n + 1;
+  }
+  loader.style.display = "none";
+}
+
+console.log(newPokemon);
 showAllContent();
 initBannerLang();
 initBannerInfo();
@@ -248,23 +279,12 @@ function showContentWanted() {
       pokemonIWantList.innerHTML += `
         <li class="pokemon-list-item">
           <div class="pokeball" id='pokeball-gray-check'>
-
-          <a class="thumbnail" href="#">
-
-            <img src="Images/Pokemon/pokeball bianco e nero.png" alt="Check Icon" class = 'img-button pkball' />
-            
-            <span>Cattura</span></a>
+            <img src="Images/Pokemon/pokeball bianco e nero.png" alt="Check Icon" class = 'img-button pkball' /> 
           </div>
-          <a class="thumbnail-info" href="#">
-
           <p class="pokemon-text">${pokemon}</p>
-
-          <span>Info</span></a>
           <div class="delete" id='delete-wanted'>
-          <a class="thumbnail-delete" href="#">
-          <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
-          <span>Elimina</span></a>
-              </div>
+            <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
+          </div>
         </li>`;
     });
 
@@ -313,20 +333,12 @@ function showContentCaptured() {
       capturedPokemonList.innerHTML += `
         <li class="pokemon-list-item">
           <div class="pokeball" id='pokeball-check'>
-          <a class="thumbnail-rilascia" href="#">
-            <img src="Images/Pokemon/pokeball.png" alt="Check Icon" class = 'img-button pkball' />
-            <span>Rilascia</span></a>
+              <img src="Images/Pokemon/pokeball.png" alt="Check Icon" class = 'img-button pkball' />
           </div>
-          <a class="thumbnail-info" href="#">
-
           <p class="pokemon-text-captured">${pokemon}</p>
-
-          <span>Info</span></a>
           <div class="delete" id ='delete'>
-          <a class="thumbnail-delete" href="#">
-          <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
-          <span>Elimina</span></a>
-              </div>
+              <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
+          </div>
         </li>`;
     });
 
@@ -356,20 +368,12 @@ function makePokeballCliccabile() {
       capturedPokemonList.innerHTML += `
         <li class="pokemon-list-item">
           <div class="pokeball" id='pokeball-check'>
-          <a class="thumbnail-rilascia" href="#">
-          <img src="Images/Pokemon/pokeball.png" alt="Check Icon" class = 'img-button pkball' />
-          <span>Rilascia</span></a>
+            <img src="Images/Pokemon/pokeball.png" alt="Check Icon" class = 'img-button pkball' />
           </div>
-          <a class="thumbnail-info" href="#">
-
           <p class="pokemon-text-captured">${pokemonCaptured}</p>
-
-          <span>Info</span></a>
           <div class="delete" id ='delete'>
-          <a class="thumbnail-delete" href="#">
-          <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
-          <span>Elimina</span></a>
-              </div>
+            <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
+          </div>
         </li>`;
       //aGGIORNA IL LOCAL STORAGE
       localStorage.setItem(WANTED_STORAGE_KEY, JSON.stringify(pokemonIWant));
@@ -392,23 +396,12 @@ function makeRelaseCliccabile() {
       pokemonIWantList.innerHTML += `
         <li class="pokemon-list-item">
           <div class="pokeball" id='pokeball-gray-check'>
-          <a class="thumbnail" href="#">
-
-          <img src="Images/Pokemon/pokeball bianco e nero.png" alt="Check Icon" class = 'img-button pkball' />
-          
-          <span>Cattura</span></a>
+            <img src="Images/Pokemon/pokeball bianco e nero.png" alt="Check Icon" class = 'img-button pkball' />
           </div>
-          <a class="thumbnail-info" href="#">
-
           <p class="pokemon-text">${pokemonRelised}</p>
-
-          <span>Info</span></a>
-
           <div class="delete" id='delete-wanted'>
-          <a class="thumbnail-delete" href="#">
-                <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
-                <span>Elimina</span></a>
-              </div>
+            <img src="Images/Delete.png" alt="Delete icon" class = 'img-button' />
+          </div>
         </li>`;
       localStorage.setItem(
         CAPTURED_STORAGE_KEY,
