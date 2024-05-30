@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="CSS/initialBanner.css" />
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/modal.css" />
-    <link rel="stylesheet" href="CSS/thumb.css" />
 
     <!--Icon-->
     <link rel="icon" type="image/png" href="Images/favicon/favicon.png" />
@@ -166,7 +165,6 @@
         </div>
         <img class="logo" src="Images/Pokemon/Pokèmon Logo.png" alt="Logo" />
 
-        <!-- The Modal -->
       </header>
       <!--Sez princi-->
       <main>
@@ -174,7 +172,7 @@
         <div id="add-pokemon-btn">
           <button id="add-btn">Aggiungi Pokèmon</button>
           <div id="add-pokemon" class="add-modal">
-            <!-- Modal content -->
+            <!-- Modal Add Pokèmon -->
             <div class="add-content">
               <div class="add-header">
                 <span class="close-add">&times;</span>
@@ -184,11 +182,10 @@
               </div>
               <div class="add-body">
                 <p>
-                  Purtroppo per adesso non funziona ancora questo bottone, ma
-                  stiamo lavorando per implementarlo!
+                  Purtroppo per adesso non funziona! Stiamo lavorando per implementarlo!
                 </p>
-                <select class="pokedex-choose">
-                  <option>--- Seleziona Pokèdex ---</option>
+                <select class="pokedex-choose" aria-placeholder="--- Select a Pokèdex ---">
+                  <option>--- Select a Pokèdex ---</option>
                   <option>Pokèdex Nazionale</option>
                   <option>Pokèdex di Kanto</option>
                   <option>Pokèdex di Johto</option>
@@ -259,7 +256,7 @@
     </footer>
 
     <!-- Javascript -->
-
+    
     <script src="src/transalte.js"></script>
     <script src="src/modalscript.js"></script>
     <script src="src/initialBanner.js"></script>

@@ -26,6 +26,8 @@ const WANTED_STORAGE_KEY = "__wanted_pokemon__";
 const CAPTURED_STORAGE_KEY = "__captured_pokemon__";
 const DISABLE_INFO_START = "__disable_info_start";
 
+
+
 let disableInfo = [];
 const infoStorage = localStorage.getItem(DISABLE_INFO_START);
 if (infoStorage) {
@@ -59,50 +61,12 @@ if (
   pokemonIWant.length == 0 &&
   capturedPokemon.length == 0
 ) {
-  pokemonList = [
-    " ---  Scegli un pokèmon  ---",
-    "#0001 - Bulbasaur ♂️",
-    "#0001 - Bulbasaur ♂️ ✨",
-    "#0001 - Bulbasaur ♀️",
-    "#0001 - Bulbasaur ♀️ ✨",
-    "#0002 - Ivysaur ♂️",
-    "#0002 - Ivysaur ♂️ ✨",
-    "#0002 - Ivysaur ♀️",
-    "#0002 - Ivysaur ♀️ ✨",
-    "#0003 - Venusaur ♂️",
-    "#0003 - Venusaur ♂️ ✨",
-    "#0003 - Venusaur ♀️",
-    "#0003 - Venusaur ♀️ ✨",
-    "#0004 - Charmander ♂️",
-    "#0004 - Charmander ♂️ ✨",
-    "#0004 - Charmander ♀️",
-    "#0004 - Charmander ♀️ ✨",
-    "#0005 - Charmeleon ♂️",
-    "#0005 - Charmeleon ♂️ ✨",
-    "#0005 - Charmeleon ♀️",
-    "#0005 - Charmeleon ♀️ ✨",
-    "#0006 - Charizard ♂️",
-    "#0006 - Charizard ♂️ ✨",
-    "#0006 - Charizard ♀️",
-    "#0006 - Charizard ♀️ ✨",
-    "#0007 - Squirtle ♂️",
-    "#0007 - Squirtle ♂️ ✨",
-    "#0007 - Squirtle ♀️",
-    "#0007 - Squirtle ♀️ ✨",
-    "#0008 - Warturtle ♂️",
-    "#0008 - Warturtle ♂️ ✨",
-    "#0008 - Warturtle ♀️",
-    "#0008 - Warturtle ♀️ ✨",
-    "#0009 - Blastoise ♂️",
-    "#0009 - Blastoise ♂️ ✨",
-    "#0009 - Blastoise ♀️",
-    "#0009 - Blastoise ♀️ ✨",
-  ];
-  localStorage.setItem(POKEMON_LIST_KEY, JSON.stringify(pokemonList));
-  const pokemonListStorage = localStorage.getItem(POKEMON_LIST_KEY);
-  if (pokemonListStorage) {
-    pokemonList = JSON.parse(pokemonListStorage);
-  }
+  getAllPokemon();
+  // localStorage.setItem(POKEMON_LIST_KEY, JSON.stringify(pokemonList));
+  // const pokemonListStorage = localStorage.getItem(POKEMON_LIST_KEY);
+  // if (pokemonListStorage) {
+  //   pokemonList = JSON.parse(pokemonListStorage);
+  // }
 }
 // task.push("Imparare CSS", "Fare la spesa");  Aggiunge
 
@@ -118,35 +82,14 @@ if (
 
 // Chiedo a JS di decidere cosa mostarre
 
-/*
-DB
-const { MongoClient } = require("mongodb");
-
-async function connectToDatabase() {
-  const url = "";
-
-  MongoClient.connect(url, function (err, client) {
-    if (err) {
-      console.error("Errore durante la connessione al database:", err);
-      return;
-    }
-
-    const database = client.db("NationalPokedexDb");
-
-    // Esegui le operazioni sul database qui
-
-    client.close(); // Chiudi la connessione quando hai finito
-  });
-}
-connectToDatabase();
-*/
-
 let newPokemon = [];
 
 async function getAllPokemon() {
   const loader = document.getElementById("loader");
   loader.style.display = "block"; // Mostra il messaggio di caricamento
   let n = 1;
+  pokemonList.push("-- Select a Pokèmon --")
+  
   while (n != 1026) {
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${n}`;
     try {
@@ -161,7 +104,25 @@ async function getAllPokemon() {
       const pokemonUrl = jsonData.species.name;
       const nameUpper =
         pokemonUrl.charAt(0).toUpperCase() + pokemonUrl.slice(1);
-      pokemonList.push(nameUpper);
+
+        let numb = "";
+        console.log(numb)
+         if (n >= 1 && n < 10) {
+          numb = `000${n}`;
+          console.log(numb)
+        } else if (n >= 10 && n < 100) {
+          numb = `00${n}`
+        } else if (n >= 100 && n < 1000) {
+          numb = `0${n}`
+        } else if (n >= 1000) {
+          numb = `${n}`
+        }
+
+        const pokènumb = `#${numb} ${nameUpper}`
+
+      pokemonList.push(pokènumb);
+
+      
 
       console.log(nameUpper);
     } catch (error) {
@@ -169,10 +130,17 @@ async function getAllPokemon() {
     }
     n = n + 1;
   }
+
+  localStorage.setItem(POKEMON_LIST_KEY, JSON.stringify(pokemonList));
+  const pokemonListStorage = localStorage.getItem(POKEMON_LIST_KEY);
+  if (pokemonListStorage) {
+    pokemonList = JSON.parse(pokemonListStorage);
+  }
+  location.reload();
   loader.style.display = "none";
 }
 
-console.log(newPokemon);
+console.log(pokemonList);
 showAllContent();
 initBannerLang();
 initBannerInfo();
@@ -213,16 +181,11 @@ buttonAdd.addEventListener("click", function () {
   console.log(newPokemon);
 
   //Se il campo non è vuoto....
-  if (newPokemon != " ---  Scegli un pokèmon  ---") {
-    deletePokemonFromList(newPokemon);
+  if (newPokemon != " -- Select a pokèmon --") {
     addPokemon(newPokemon);
   }
 });
 
-// alert(
-//   "Clicca il pokèdex per aggiungere i pokèmon, Clicca sulla pokèball per spostarli, Clicca sul nome di un pokèmon in una delle 2 liste per vedere le info, Clicca sul cestino per cancellare il pokèmon dalla lista"
-// );
-//pokemonSelectList.splice(selectField.selectedIndex, 1);
 console.log(selectField.selectedIndex);
 //
 // # Funzioni
@@ -244,11 +207,7 @@ function showPokemonList() {
 
   if (pokemonList.length > 0) {
     pokemonList.forEach(function (pokemon) {
-      // if (pokemon == "Scegli un pokèmon") {
-      //   pokemonSelectList.innerHTML += `<option value='${pokemon}' disabled selected hidden>${pokemon}</option>`;
-      // } else {
       pokemonSelectList.innerHTML += `<option value='${pokemon}'>${pokemon}</option>`;
-      // }
     });
   }
 }
@@ -532,26 +491,14 @@ function addPokemonToList(deletedPokemon) {
   showAllContent;
 }
 
-function deletePokemonFromList(pokemon) {
-  var list = pokemonList.forEach(pokemonArray);
-  function pokemonArray(item, index) {
-    if (item == pokemon) {
-      pokemonList.splice(index, 1);
-      localStorage.setItem(POKEMON_LIST_KEY, JSON.stringify(pokemonList));
-    }
-  }
+// function deletePokemonFromList(pokemon) {
+//   var list = pokemonList.forEach(pokemonArray);
+//   function pokemonArray(item, index) {
+//     if (item == pokemon) {
+//       pokemonList.splice(index, 1);
+//       localStorage.setItem(POKEMON_LIST_KEY, JSON.stringify(pokemonList));
+//     }
+//   }
 
-  showAllContent();
-}
-//
-// //Funzione crea un template HTML per l'ayttività
-// function crateActivityTemplate(task){
-//     //Per ogni task la aggiungo nella lista tramite blocco HTML
-//     return`
-//     <li class="todo-item">
-//             <div class="todo-check">
-//               <img src="Images/Check.png" alt="Check Icon" width="15px" />
-//             </div>
-//             <p class="todo-text">${task}</p>
-//           </li>`;
+//   showAllContent();
 // }
